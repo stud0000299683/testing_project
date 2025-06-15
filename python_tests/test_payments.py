@@ -28,7 +28,7 @@ def server_start():
         [python_path, "-m", "http.server", "8000"],
         cwd=os.path.join(os.path.dirname(__file__), "..", "dist"),
         stdout=subprocess.PIPE,
-        stderr=subprocess.PIPE
+        stderr=subprocess.PIPE)
     #process = subprocess.Popen(["C://Users//chamorcev//AppData//Local//Programs//Python//Python312//python.exe", "-m", "http.server", "8000"],
     #                           cwd=os.path.join(os.path.dirname(__file__), "..", "dist"),
     #                           stdout=subprocess.PIPE,
