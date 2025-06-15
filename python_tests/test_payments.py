@@ -24,10 +24,15 @@ def driver():
 
 @pytest.fixture(scope="module", autouse=True)
 def server_start():
-    process = subprocess.Popen(["C://Users//chamorcev//AppData//Local//Programs//Python//Python312//python.exe", "-m", "http.server", "8000"],
-                               cwd=os.path.join(os.path.dirname(__file__), "..", "dist"),
-                               stdout=subprocess.PIPE,
-                               stderr=subprocess.PIPE)
+     process = subprocess.Popen(
+        [python_path, "-m", "http.server", "8000"],
+        cwd=os.path.join(os.path.dirname(__file__), "..", "dist"),
+        stdout=subprocess.PIPE,
+        stderr=subprocess.PIPE
+    #process = subprocess.Popen(["C://Users//chamorcev//AppData//Local//Programs//Python//Python312//python.exe", "-m", "http.server", "8000"],
+    #                           cwd=os.path.join(os.path.dirname(__file__), "..", "dist"),
+    #                           stdout=subprocess.PIPE,
+    #                           stderr=subprocess.PIPE)
     for _ in range(10):
         try:
             urllib.request.urlopen("http://localhost:8000")
