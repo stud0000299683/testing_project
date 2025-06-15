@@ -1,5 +1,5 @@
 import urllib
-
+import sys
 import pytest
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
@@ -24,6 +24,7 @@ def driver():
 
 @pytest.fixture(scope="module", autouse=True)
 def server_start():
+    python_path = sys.executable
     process = subprocess.Popen(
         [python_path, "-m", "http.server", "8000"],
         cwd=os.path.join(os.path.dirname(__file__), "..", "dist"),
